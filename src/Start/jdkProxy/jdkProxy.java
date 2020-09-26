@@ -11,8 +11,9 @@ public class jdkProxy {
         Learning target = new LearningImpl();
         LearningHandler handler = new LearningHandler(target);
 
-        Learning proxy = (Learning)Proxy.newProxyInstance(target.getClass().getClassLoader(),
-                target.getClass().getInterfaces(),handler);
+        //Learning proxy = (Learning)Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(),handler);
+
+        Learning proxy = target.getJdkProxy(handler);
         proxy.math();
         System.out.println("--------------------------------");
         proxy.science();
